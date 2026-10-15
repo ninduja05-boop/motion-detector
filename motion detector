@@ -1,0 +1,25 @@
+#define PIR 2
+#define LED 13
+#define BUZZER 12
+
+void setup() {
+  pinMode(PIR, INPUT);
+  pinMode(LED, OUTPUT);
+  pinMode(BUZZER, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int motion = digitalRead(PIR);
+
+  if (motion == HIGH) {
+    digitalWrite(LED, HIGH);
+    digitalWrite(BUZZER, HIGH);
+    Serial.println("Motion Detected!");
+    delay(1000);
+  } else {
+    digitalWrite(LED, LOW);
+    digitalWrite(BUZZER, LOW);
+    Serial.println("No Motion");
+  }
+}
